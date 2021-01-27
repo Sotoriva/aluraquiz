@@ -11,7 +11,7 @@ import QuizLogo from '../src/components/QuizLogo';
 import QuizContainer from '../src/components/QuizContainer';
 import Button from '../src/components/Button';
 
-import FormField from '../src/components/FormField';
+import Input from '../src/components/Input';
 
 export default function Home() {
   const router = useRouter();
@@ -37,7 +37,7 @@ export default function Home() {
               router.push(`/quiz?name=${name}`);
             }}
             >
-              <FormField
+              <Input
                 placeholder="Diz aí seu nome para começar a jogar"
                 // eslint-disable-next-line react/jsx-no-bind
                 onChange={function (event) {

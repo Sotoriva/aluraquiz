@@ -9,8 +9,8 @@ const Button = styled.button`
   height: 40px;
   cursor: pointer;
   text-transform: uppercase;
-  margin-top: 20px;
   font-weight: bold;
+  
   &:hover {
     opacity: 80%;
   }
