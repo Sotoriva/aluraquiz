@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -39,18 +40,10 @@ export default function Home() {
             >
               <Input
                 placeholder="Diz aí seu nome para começar a jogar"
-                // eslint-disable-next-line react/jsx-no-bind
-                onChange={function (event) {
-                  setName(event.target.value);
-                }}
+                onChange={(event) => setName(event.target.value)}
+                name="nome do jogador"
+                value={name}
               />
-              {/* <input
-                onChange={function (event) {
-                  // State
-                  setName(event.target.value);
-                }}
-                placeholder="Diz aí seu nome pra jogar :)"
-              /> */}
               <Button disabled={name.length === 0} title="Jogar" text="Jogar" />
               {/* <button type="submit" disabled={name.length === 0}>
                 Jogar
