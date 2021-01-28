@@ -9,10 +9,10 @@
       "description": "Essa é pra aquecer",
       "answer": 2,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        ".elemento alternativa 01",
+        "*elemento alternativa 02",
+        "#elemento alternativa 03",
+        "%elemento alternativa 04"
       ]
     },
     {

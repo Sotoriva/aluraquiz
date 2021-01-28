@@ -32,4 +32,4 @@ const QuizBackground = styled.div`
   }
 `;
 
-export default QuizBackground
+export default QuizBackground;
