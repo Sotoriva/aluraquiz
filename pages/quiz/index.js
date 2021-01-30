@@ -1,6 +1,6 @@
 import React from 'react';
-import { useRouter } from 'next/router';
-import { FiChevronLeft } from 'react-icons/fi';
+import PropTypes from 'prop-types';
+import '@lottiefiles/lottie-player';
 
 import db from '../../db.json';
 import Widget from '../../src/components/Widget';
@@ -10,6 +10,7 @@ import QuizLogo from '../../src/components/QuizLogo';
 import Button from '../../src/components/Button';
 import QuizContainer from '../../src/components/QuizContainer';
 import AlternativesForm from '../../src/components/AlternativesForm';
+import BackLinkArrow from '../../src/components/BackLinkArrow';
 
 function ResultWidget({ results }) {
   return (
@@ -42,7 +43,16 @@ function LoadingWidget() {
       </Widget.Header>
 
       <Widget.Content>
-        [Desafio do Loading]
+        <lottie-player
+          autoplay
+          src="https://assets3.lottiefiles.com/packages/lf20_ZeRz5S.json"
+          // src="https://assets6.lottiefiles.com/packages/lf20_wsfxbfzx.json"
+          style={{
+            width: '100%',
+            justify: 'center',
+          }}
+          loop
+        />
       </Widget.Content>
     </Widget>
   );
@@ -60,18 +70,11 @@ function QuestionWidget({
   const isCorrect = selectedAlternative === question.answer;
   const [isQuestionSubmited, setIsQuestionSubmited] = React.useState(false);
   const hasAlternativeSelected = selectedAlternative !== undefined;
-  const router = useRouter();
 
   return (
     <Widget>
       <Widget.Header>
-        <FiChevronLeft
-          onClick={(event) => {
-            event.preventDefault();
-
-            router.push('/');
-          }}
-        />
+        <BackLinkArrow href="/" />
         <h3>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
@@ -143,8 +146,11 @@ function QuestionWidget({
 }
 
 QuestionWidget.propTypes = {
-  // type: PropTypes.oneOf(['submit', 'type', 'button']).isRequired,
-  // children: PropTypes.node.isRequired,
+  question: PropTypes.string.isRequired,
+  questionIndex: PropTypes.string.isRequired,
+  totalQuestions: PropTypes.string.isRequired,
+  onSubmit: PropTypes.string.isRequired,
+  addResult: PropTypes.string.isRequired,
 };
 
 const screenStates = {

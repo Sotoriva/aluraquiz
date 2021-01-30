@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+import { motion } from 'framer-motion';
+
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
@@ -22,18 +24,27 @@ export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
-        <title>AluraQuiz - Modelo Base</title>
+        <title>Tomorrowland Quiz</title>
       </Head>
       <QuizContainer>
         <QuizLogo />
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{ delay: 0, duration: 0.5 }}
+          variants={{
+            show: { opacity: 1, x: '0' },
+            hidden: { opacity: 0, x: '-100%' },
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Header>
-            <h1>Imerção React Quiz</h1>
+            <h1>{db.title}</h1>
           </Widget.Header>
 
           <Widget.Content>
-            <p>Teste os seus conhecimentos sobre o TEMA e divirta-se criando o seu AluraQuiz!</p>
-            <form onSubmit={function (event) {
+            <p>{db.description}</p>
+            <form onSubmit={(event) => {
               event.preventDefault();
 
               router.push(`/quiz?name=${name}`);
@@ -52,9 +63,18 @@ export default function Home() {
             </form>
           </Widget.Content>
         </Widget>
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          variants={{
+            show: { opacity: 1, x: '0' },
+            hidden: { opacity: 0, x: '-100%' },
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Content>
-            <h1>Quizes da galera</h1>
+            <h2>Quizes da galera</h2>
 
             <p>Dá uma olhada nesses quizes incríveis que o pessoal da Imersão Alguma coisa fez:</p>
             <ul>
@@ -76,7 +96,16 @@ export default function Home() {
             </ul>
           </Widget.Content>
         </Widget>
-        <Footer />
+        <Footer
+          as={motion.footer}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          variants={{
+            show: { opacity: 1, x: '0' },
+            hidden: { opacity: 0, x: '-100%' },
+          }}
+          initial="hidden"
+          animate="show"
+        />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/Sotoriva" />
     </QuizBackground>

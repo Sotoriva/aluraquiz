@@ -1,43 +1,48 @@
 {
-  "bg": "https://i2.wp.com/css-tricks.com/wp-content/uploads/2017/06/css-is-awesome-scaled.jpg?resize=1536%2C1208&ssl=1",
-  "title": "Quiz CSS da Alura",
-  "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+  "bg": "https://scontent.fmgf1-1.fna.fbcdn.net/v/t31.0-8/20414267_1724559644250729_1665955531422599072_o.jpg?_nc_cat=107&ccb=2&_nc_sid=cdbe9c&_nc_ohc=MX0QTpNLfQAAX-22e7s&_nc_ht=scontent.fmgf1-1.fna&oh=47250c9ee97d2b840e6bd47e0777939e&oe=6038DC92",
+  "title": "Tomorrowland Quiz",
+  "description": "Teste os seus conhecimentos sobre o Tomorrowland ou descubra mais sobre essa festa surreal !!",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
-      "description": "Essa é pra aquecer",
-      "answer": 2,
+      "image": "https://media4.giphy.com/media/SU8WMLDHwaZiTs2iqI/giphy.gif",
+      "title": "Qual é a DJ top 1 da Tomorrowland?",
+      "description": "As braba",
+      "answer": 0,
       "alternatives": [
-        ".elemento alternativa 01",
-        "*elemento alternativa 02",
-        "#elemento alternativa 03",
-        "%elemento alternativa 04"
+        "Nora En Pure",
+        "Charlotte de Witte",
+        "NERVO",
+        "Nastia"
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
-      "answer": 0,
+      "image": "https://media2.giphy.com/media/5bkATD8yAbIJbvGeCB/giphy.gif",
+      "title": "Qual é a dupla de DJ top 1 da Tomorrowland?",
+      "description": "Os Brabo",
+      "answer": 2,
       "alternatives": [
-         "background: linear-gradient(#e66465, #9198e5);",
-         "background: gradient(#e66465, #9198e5);"
+        "Zonderling",
+        "Chemical Surf",
+        "CamelPhat",
+        "DubVision"
       ]
     }
   ],
   "external": [
-    "https://aluraquiz.sotoriva.vercel.app/",
-    "https://aluraquiz.sotoriva.vercel.app/"
+    "https://flow-quiz.garubieru.vercel.app/",
+    "https://master-quiz-lime.vercel.app/",
+    "https://my-aluraquiz.romulosramos.vercel.app/",
+    "https://aluraquiz.edlanioj.vercel.app/"
   ],
   "theme": {
     "colors": {
-      "primary": "#2962ff",
+      "primary": "#006C86",
       "secondary": "#ff6d00",
       "mainBg": "#171B35",
       "contrastText": "#FFFFFF",
       "wrong": "#FF5722",
-      "success": "#4CAF50"
+      "success": "#4CAF50",
+      "text": "#000000"
     },
     "borderRadius": "4px"
   }
