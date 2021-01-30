@@ -32,6 +32,5 @@ export async function getServerSideProps(context) {
     };
   } catch (err) {
     throw new Error(err);
-    // console.log(err);
   }
 }

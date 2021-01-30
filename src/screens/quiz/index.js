@@ -1,4 +1,5 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
 
 import Widget from '../../components/Widget';
 import GitHubCorner from '../../components/GitHubCorner';
@@ -40,6 +41,10 @@ function ResultWidget({ results }) {
   );
 }
 
+// ResultWidget.propTypes = {
+//   results: PropTypes.bool.isRequired,
+// };
+
 function LoadingWidget() {
   return (
     <Widget>
@@ -66,7 +71,6 @@ function QuestionWidget({
   const isCorrect = selectedAlternative === question.answer;
   const [isQuestionSubmited, setIsQuestionSubmited] = React.useState(false);
   const hasAlternativeSelected = selectedAlternative !== undefined;
-  const router = useRouter();
 
   return (
     <Widget>
@@ -142,6 +146,14 @@ function QuestionWidget({
   );
 }
 
+// QuestionWidget.propTypes = {
+//   question: PropTypes.arrayOf(PropTypes.string).isRequired,
+//   questionIndex: PropTypes.number.isRequired,
+//   totalQuestions: PropTypes.number.isRequired,
+//   onSubmit: PropTypes.func.isRequired,
+//   addResult: PropTypes.func.isRequired,
+// };
+
 const screenStates = {
   QUIZ: 'QUIZ',
   LOADING: 'LOADING',
@@ -204,3 +216,8 @@ export default function QuizPage({ externalQuestions, externalBg }) {
     </QuizBackground>
   );
 }
+
+// QuizPage.propTypes = {
+//   externalBg: PropTypes.string.isRequired,
+//   externalQuestions: PropTypes.arrayOf(PropTypes.string).isRequired,
+// };
