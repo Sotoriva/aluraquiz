@@ -1,6 +1,4 @@
 import React from 'react';
-import { useRouter } from 'next/router';
-import { FiChevronLeft } from 'react-icons/fi';
 
 import Widget from '../../components/Widget';
 import GitHubCorner from '../../components/GitHubCorner';
@@ -9,6 +7,7 @@ import QuizLogo from '../../components/QuizLogo';
 import Button from '../../components/Button';
 import QuizContainer from '../../components/QuizContainer';
 import AlternativesForm from '../../components/AlternativesForm';
+import BackLinkArrow from '../../components/BackLinkArrow';
 
 function ResultWidget({ results }) {
   return (
@@ -72,13 +71,7 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
-        <FiChevronLeft
-          onClick={(event) => {
-            event.preventDefault();
-
-            router.push('/');
-          }}
-        />
+        <BackLinkArrow href="/" />
         <h3>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
