@@ -27,7 +27,8 @@
     }
   ],
   "external": [
-    ""
+    "https://aluraquiz.sotoriva.vercel.app/",
+    "https://aluraquiz.sotoriva.vercel.app/"
   ],
   "theme": {
     "colors": {
