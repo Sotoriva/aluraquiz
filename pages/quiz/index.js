@@ -11,6 +11,7 @@ import Button from '../../src/components/Button';
 import QuizContainer from '../../src/components/QuizContainer';
 import AlternativesForm from '../../src/components/AlternativesForm';
 import BackLinkArrow from '../../src/components/BackLinkArrow';
+import HomeLink from '../../src/components/HomeLink';
 
 function ResultWidget({ results }) {
   return (
@@ -23,17 +24,28 @@ function ResultWidget({ results }) {
         <p>
           {`Você acertou ${results.filter((x) => x).length} perguntas!`}
         </p>
-        <ul>
-          {results.map((result, index) => (
-            <li key={`result__${result}`}>
-              {`#${index + 1} Resultado: ${result === true ? 'Acertou' : 'Errou'}`}
-            </li>
-          ))}
-        </ul>
+        {results.map((result, index) => (
+          <Widget.Result key={`result__${result}`}>
+            <lottie-player
+              autoplay
+              src={result === true ? 'https://assets7.lottiefiles.com/packages/lf20_oaw8d1yt.json' : 'https://assets5.lottiefiles.com/packages/lf20_y8t1nosz.json'}
+              style={{ width: '35px', height: '35px' }}
+            />
+            {`#${index + 1} ${result ? 'Você acertou!' : 'Alternativa correta: '}${result ? '' : ''}`}
+          </Widget.Result>
+        ))}
+        <div style={{ padding: '20px' }}>
+          <Button text="Voltar para o início" title="Voltar para o início" />
+          <HomeLink href="/" />
+        </div>
       </Widget.Content>
     </Widget>
   );
 }
+
+ResultWidget.propTypes = {
+  results: PropTypes.string.isRequired,
+};
 
 function LoadingWidget() {
   return (
@@ -45,13 +57,11 @@ function LoadingWidget() {
       <Widget.Content>
         <lottie-player
           autoplay
+          loop
           src="https://assets3.lottiefiles.com/packages/lf20_ZeRz5S.json"
-          // src="https://assets6.lottiefiles.com/packages/lf20_wsfxbfzx.json"
           style={{
             width: '100%',
-            justify: 'center',
           }}
-          loop
         />
       </Widget.Content>
     </Widget>
@@ -103,7 +113,7 @@ function QuestionWidget({
             onSubmit();
             setIsQuestionSubmited(false);
             setSelectedAlternative(undefined);
-          }, 3 * 1000);
+          }, 2 * 1000);
         }}
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
@@ -137,8 +147,28 @@ function QuestionWidget({
             selectedAlternative:
             {selectedAlternative}
           </p> */}
-          {isQuestionSubmited && isCorrect && <p>Você Acertou!</p>}
-          {isQuestionSubmited && !isCorrect && <p>Você Errou!</p>}
+          {isQuestionSubmited && isCorrect && (
+            <Widget.Content>
+              <lottie-player
+                autoplay
+                src="https://assets7.lottiefiles.com/packages/lf20_oaw8d1yt.json"
+                style={{
+                  width: '50%',
+                }}
+              />
+            </Widget.Content>
+          )}
+          {isQuestionSubmited && !isCorrect && (
+            <Widget.Content>
+              <lottie-player
+                autoplay
+                src="https://assets5.lottiefiles.com/packages/lf20_y8t1nosz.json"
+                style={{
+                  width: '50%',
+                }}
+              />
+            </Widget.Content>
+          )}
         </AlternativesForm>
       </Widget.Content>
     </Widget>
