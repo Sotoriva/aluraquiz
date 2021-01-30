@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '@lottiefiles/lottie-player';
+// import '@lottiefiles/lottie-player';
 
 import db from '../../db.json';
 import Widget from '../../src/components/Widget';
