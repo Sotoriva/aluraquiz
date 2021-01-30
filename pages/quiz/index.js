@@ -2,14 +2,14 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { FiChevronLeft } from 'react-icons/fi';
 
-import db from '../db.json';
-import Widget from '../src/components/Widget';
-import GitHubCorner from '../src/components/GitHubCorner';
-import QuizBackground from '../src/components/QuizBackground';
-import QuizLogo from '../src/components/QuizLogo';
-import Button from '../src/components/Button';
-import QuizContainer from '../src/components/QuizContainer';
-import AlternativesForm from '../src/components/AlternativesForm';
+import db from '../../db.json';
+import Widget from '../../src/components/Widget';
+import GitHubCorner from '../../src/components/GitHubCorner';
+import QuizBackground from '../../src/components/QuizBackground';
+import QuizLogo from '../../src/components/QuizLogo';
+import Button from '../../src/components/Button';
+import QuizContainer from '../../src/components/QuizContainer';
+import AlternativesForm from '../../src/components/AlternativesForm';
 
 function ResultWidget({ results }) {
   return (
@@ -20,15 +20,7 @@ function ResultWidget({ results }) {
 
       <Widget.Content>
         <p>
-          {/* {`Você acertou
-          ${results.reduce((somatoriaAtual, resultadoAtual) => {
-            const isCorrect = resultadoAtual === true;
-            return isCorrect ? somatoriaAtual + 1 : somatoriaAtual;
-          }, 0)}
-          perguntas!`} */}
-          {`Você acertou
-          ${results.filter((x) => x).length}
-          perguntas!`}
+          {`Você acertou ${results.filter((x) => x).length} perguntas!`}
         </p>
         <ul>
           {results.map((result, index) => (
@@ -193,7 +185,7 @@ export default function QuizPage() {
   }
 
   return (
-    <QuizBackground backgroundImage={db.bg}>
+    <QuizBackground backgroundImage={q}>
       <QuizContainer>
         <QuizLogo />
 
