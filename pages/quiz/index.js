@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // import '@lottiefiles/lottie-player';
 
 import db from '../../db.json';
@@ -43,9 +43,9 @@ function ResultWidget({ results }) {
   );
 }
 
-ResultWidget.propTypes = {
-  results: PropTypes.string.isRequired,
-};
+// ResultWidget.propTypes = {
+//   results: PropTypes.string.isRequired,
+// };
 
 function LoadingWidget() {
   return (
@@ -175,13 +175,13 @@ function QuestionWidget({
   );
 }
 
-QuestionWidget.propTypes = {
-  question: PropTypes.string.isRequired,
-  questionIndex: PropTypes.string.isRequired,
-  totalQuestions: PropTypes.string.isRequired,
-  onSubmit: PropTypes.string.isRequired,
-  addResult: PropTypes.string.isRequired,
-};
+// QuestionWidget.propTypes = {
+//   question: PropTypes.string.isRequired,
+//   questionIndex: PropTypes.string.isRequired,
+//   totalQuestions: PropTypes.string.isRequired,
+//   onSubmit: PropTypes.string.isRequired,
+//   addResult: PropTypes.string.isRequired,
+// };
 
 const screenStates = {
   QUIZ: 'QUIZ',

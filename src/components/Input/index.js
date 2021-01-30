@@ -25,14 +25,12 @@ const InputBase = styled.input`
   }
 `;
 
-// eslint-disable-next-line react/prop-types
 export default function Input({ placeholder, onChange, ...props }) {
   return (
     <div>
       <InputBase
         placeholder={placeholder}
         onChange={onChange}
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
       />
     </div>
