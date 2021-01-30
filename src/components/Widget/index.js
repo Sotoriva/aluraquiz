@@ -8,6 +8,8 @@ const Widget = styled.div`
   border-radius: 4px;
   overflow: hidden;
 
+  
+
   h1, h2, h3 {
     font-size: 16px;
     font-weight: 700;
@@ -49,11 +51,23 @@ Widget.Content = styled.div`
   }
 `;
 
+Widget.Result = styled.a`
+outline: 0;
+text-decoration: none;
+color: ${({ theme }) => theme.colors.contrastText};
+background-color: ${({ theme }) => `${theme.colors.primary}`};
+padding: 10px 15px;
+margin-bottom: 8px;
+border-radius: ${({ theme }) => theme.borderRadius};
+display: flex;
+align-items: center;
+`;
+
 Widget.Topic = styled.a`
   outline: 0;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.contrastText};
-  background-color: ${({ theme }) => `${theme.colors.primary}40`};
+  background-color: ${({ theme }) => `${theme.colors.primary}`};
   padding: 10px 15px;
   margin-bottom: 8px;
   cursor: pointer;
