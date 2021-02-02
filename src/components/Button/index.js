@@ -13,7 +13,6 @@ const Button = styled.button`
   font-weight: bold;
   outline: 0;
   transition: 0.3s;
-  
 
   p {
     color: white

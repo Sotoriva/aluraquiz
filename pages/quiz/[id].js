@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import QuizScreen from '../../src/screens/quiz';
 
@@ -15,9 +15,13 @@ export default function QuizDaGaleraPage({ dbExterno }) {
   );
 }
 
-// QuizDaGaleraPage.propTypes = {
-//   dbExterno: PropTypes.json,
-// };
+QuizDaGaleraPage.propTypes = {
+  dbExterno: PropTypes.exact({
+    theme: PropTypes.object,
+    questions: PropTypes.array,
+    bg: PropTypes.string,
+  }).isRequired,
+};
 
 export async function getServerSideProps(context) {
   const [projectName, githubUser] = context.query.id.split('___');

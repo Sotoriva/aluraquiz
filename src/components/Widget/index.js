@@ -8,6 +8,7 @@ const Widget = styled.div`
   border-radius: 4px;
   overflow: hidden;
   align-items: center;
+  justify-content: center;
 
   h1, h2, h3 {
     font-size: 16px;
@@ -48,7 +49,7 @@ Widget.Content = styled.div`
   }
 `;
 
-Widget.Result = styled.a`
+Widget.Result = styled.li`
   outline: 0;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.contrastText};
@@ -74,7 +75,7 @@ Widget.Topic = styled.a`
   
   &:hover,
   &:focus {
-    opacity: .5;
+    opacity: 0.5;
   }
 `;
 

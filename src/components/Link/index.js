@@ -34,6 +34,9 @@ export default function Link({ children, href, ...props }) {
 }
 
 Link.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]).isRequired,
   href: PropTypes.string.isRequired,
 };
