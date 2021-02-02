@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Lottie } from '@crello/react-lottie';
+import Head from 'next/head';
 
 import Widget from '../../components/Widget';
 import GitHubCorner from '../../components/GitHubCorner';
@@ -213,7 +214,7 @@ const screenStates = {
   RESULT: 'RESULT',
 };
 
-export default function QuizPage({ externalQuestions, externalBg }) {
+export default function QuizPage({ externalQuestions, externalBg, externalTitle }) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [results, setResults] = React.useState([]);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
@@ -221,6 +222,7 @@ export default function QuizPage({ externalQuestions, externalBg }) {
   const question = externalQuestions[questionIndex];
   const totalQuestions = externalQuestions.length;
   const bg = externalBg;
+  const title = externalTitle;
 
   function addResult(result) {
     setResults([
@@ -246,6 +248,12 @@ export default function QuizPage({ externalQuestions, externalBg }) {
 
   return (
     <QuizBackground backgroundImage={bg}>
+      <Head>
+        <title>
+          AluraQuiz -
+          {title}
+        </title>
+      </Head>
       <QuizContainer>
         <QuizLogo />
 
@@ -272,4 +280,5 @@ export default function QuizPage({ externalQuestions, externalBg }) {
 QuizPage.propTypes = {
   externalQuestions: PropTypes.arrayOf(PropTypes.object).isRequired,
   externalBg: PropTypes.string.isRequired,
+  externalTitle: PropTypes.string.isRequired,
 };

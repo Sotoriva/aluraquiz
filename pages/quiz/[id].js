@@ -10,6 +10,7 @@ export default function QuizDaGaleraPage({ dbExterno }) {
       <QuizScreen
         externalQuestions={dbExterno.questions}
         externalBg={dbExterno.bg}
+        externalTitle={dbExterno.title}
       />
     </ThemeProvider>
   );
@@ -17,6 +18,7 @@ export default function QuizDaGaleraPage({ dbExterno }) {
 
 QuizDaGaleraPage.propTypes = {
   dbExterno: PropTypes.exact({
+    title: PropTypes.string,
     theme: PropTypes.object,
     questions: PropTypes.array,
     bg: PropTypes.string,
