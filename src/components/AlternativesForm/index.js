@@ -3,7 +3,8 @@ import styled from 'styled-components';
 const Alternatives = styled.form`
   label {
     &[data-selected="true"] {
-      background-color: ${({ theme }) => theme.colors.primary};
+      /* background-color: ${({ theme }) => theme.colors.primary}; */
+      background-color: #004C86;
       
       &[data-status="SUCCESS"] {
         background-color: ${({ theme }) => theme.colors.success};

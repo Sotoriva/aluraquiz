@@ -1,8 +1,7 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-
 import { motion } from 'framer-motion';
 
 import db from '../db.json';
@@ -13,7 +12,6 @@ import QuizBackground from '../src/components/QuizBackground';
 import QuizLogo from '../src/components/QuizLogo';
 import QuizContainer from '../src/components/QuizContainer';
 import Button from '../src/components/Button';
-
 import Input from '../src/components/Input';
 import Link from '../src/components/Link';
 
@@ -24,7 +22,10 @@ export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
-        <title>Tomorrowland Quiz</title>
+        <title>
+          AluraQuiz -
+          {db.title}
+        </title>
       </Head>
       <QuizContainer>
         <QuizLogo />
@@ -41,25 +42,22 @@ export default function Home() {
           <Widget.Header>
             <h1>{db.title}</h1>
           </Widget.Header>
-
           <Widget.Content>
             <p>{db.description}</p>
             <form onSubmit={(event) => {
               event.preventDefault();
-
               router.push(`/quiz?name=${name}`);
             }}
             >
               <Input
+                name="nomeDoJogador"
                 placeholder="Diz aí seu nome para começar a jogar"
                 onChange={(event) => setName(event.target.value)}
-                name="nome do jogador"
                 value={name}
               />
-              <Button disabled={name.length === 0} title="Jogar" text="Jogar" />
-              {/* <button type="submit" disabled={name.length === 0}>
+              <Button title="Jogar" type="submit" disabled={name.length === 0}>
                 Jogar
-              </button> */}
+              </Button>
             </form>
           </Widget.Content>
         </Widget>

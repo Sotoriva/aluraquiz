@@ -7,8 +7,8 @@ const Widget = styled.div`
   background-color: ${({ theme }) => theme.colors.mainBg};
   border-radius: 4px;
   overflow: hidden;
-
-  
+  align-items: center;
+  justify-content: center;
 
   h1, h2, h3 {
     font-size: 16px;
@@ -32,8 +32,6 @@ Widget.Header = styled.header`
   * {
     margin: 0;
   }
-
-  
 `;
 
 Widget.Content = styled.div`
@@ -51,16 +49,16 @@ Widget.Content = styled.div`
   }
 `;
 
-Widget.Result = styled.a`
-outline: 0;
-text-decoration: none;
-color: ${({ theme }) => theme.colors.contrastText};
-background-color: ${({ theme }) => `${theme.colors.primary}`};
-padding: 10px 15px;
-margin-bottom: 8px;
-border-radius: ${({ theme }) => theme.borderRadius};
-display: flex;
-align-items: center;
+Widget.Result = styled.li`
+  outline: 0;
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.contrastText};
+  background-color: ${({ theme }) => `${theme.colors.primary}`};
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  display: flex;
+  align-items: center;
 `;
 
 Widget.Topic = styled.a`
@@ -77,7 +75,7 @@ Widget.Topic = styled.a`
   
   &:hover,
   &:focus {
-    opacity: .5;
+    opacity: 0.5;
   }
 `;
 
