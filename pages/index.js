@@ -56,10 +56,9 @@ export default function Home() {
                 name="nome do jogador"
                 value={name}
               />
-              <Button disabled={name.length === 0} title="Jogar" text="Jogar" />
-              {/* <button type="submit" disabled={name.length === 0}>
+              <Button title="Jogar" type="submit" disabled={name.length === 0}>
                 Jogar
-              </button> */}
+              </Button>
             </form>
           </Widget.Content>
         </Widget>
@@ -111,3 +110,5 @@ export default function Home() {
     </QuizBackground>
   );
 }
+
+// "secondary": "#ff6d00"

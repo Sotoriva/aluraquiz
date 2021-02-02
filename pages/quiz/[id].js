@@ -1,5 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+// import PropTypes from 'prop-types';
+
 import QuizScreen from '../../src/screens/quiz';
 
 export default function QuizDaGaleraPage({ dbExterno }) {
@@ -12,6 +14,10 @@ export default function QuizDaGaleraPage({ dbExterno }) {
     </ThemeProvider>
   );
 }
+
+// QuizDaGaleraPage.propTypes = {
+//   dbExterno: PropTypes.json,
+// };
 
 export async function getServerSideProps(context) {
   const [projectName, githubUser] = context.query.id.split('___');

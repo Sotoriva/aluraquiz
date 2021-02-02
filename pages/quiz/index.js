@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import '@lottiefiles/lottie-player';
 
 import db from '../../db.json';
@@ -7,11 +7,11 @@ import Widget from '../../src/components/Widget';
 import GitHubCorner from '../../src/components/GitHubCorner';
 import QuizBackground from '../../src/components/QuizBackground';
 import QuizLogo from '../../src/components/QuizLogo';
+import Link from '../../src/components/Link';
 import Button from '../../src/components/Button';
 import QuizContainer from '../../src/components/QuizContainer';
 import AlternativesForm from '../../src/components/AlternativesForm';
 import BackLinkArrow from '../../src/components/BackLinkArrow';
-import HomeLink from '../../src/components/HomeLink';
 
 function ResultWidget({ results }) {
   return (
@@ -34,18 +34,20 @@ function ResultWidget({ results }) {
             {`#${index + 1} ${result ? 'Você acertou!' : 'Alternativa correta: '}${result ? '' : ''}`}
           </Widget.Result>
         ))}
-        <div style={{ padding: '20px' }}>
-          <Button text="Voltar para o início" title="Voltar para o início" />
-          <HomeLink href="/" />
-        </div>
+        <Link href="/">
+          <svg height="20px" width="20px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#ffffff" d="m498.195312 222.695312c-.011718-.011718-.023437-.023437-.035156-.035156l-208.855468-208.847656c-8.902344-8.90625-20.738282-13.8125-33.328126-13.8125-12.589843 0-24.425781 4.902344-33.332031 13.808594l-208.746093 208.742187c-.070313.070313-.140626.144531-.210938.214844-18.28125 18.386719-18.25 48.21875.089844 66.558594 8.378906 8.382812 19.445312 13.238281 31.277344 13.746093.480468.046876.964843.070313 1.453124.070313h8.324219v153.699219c0 30.414062 24.746094 55.160156 55.167969 55.160156h81.710938c8.28125 0 15-6.714844 15-15v-120.5c0-13.878906 11.289062-25.167969 25.167968-25.167969h48.195313c13.878906 0 25.167969 11.289063 25.167969 25.167969v120.5c0 8.285156 6.714843 15 15 15h81.710937c30.421875 0 55.167969-24.746094 55.167969-55.160156v-153.699219h7.71875c12.585937 0 24.421875-4.902344 33.332031-13.808594 18.359375-18.371093 18.367187-48.253906.023437-66.636719zm0 0" />
+          </svg>
+          Voltar para o início
+        </Link>
       </Widget.Content>
     </Widget>
   );
 }
 
-// ResultWidget.propTypes = {
-//   results: PropTypes.string.isRequired,
-// };
+ResultWidget.propTypes = {
+  results: PropTypes.arrayOf(PropTypes.array).isRequired,
+};
 
 function LoadingWidget() {
   return (
@@ -85,7 +87,7 @@ function QuestionWidget({
     <Widget>
       <Widget.Header>
         <BackLinkArrow href="/" />
-        <h3>
+        <h3 style={{ paddingLeft: '10px' }}>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
       </Widget.Header>
@@ -141,12 +143,9 @@ function QuestionWidget({
             );
           })}
 
-          <Button text="Confirmar" title="Confirmar" type="submit" disabled={!hasAlternativeSelected} />
-
-          {/* <p>
-            selectedAlternative:
-            {selectedAlternative}
-          </p> */}
+          <Button title="Confirmar" type="submit" disabled={!hasAlternativeSelected}>
+            Confirmar
+          </Button>
           {isQuestionSubmited && isCorrect && (
             <Widget.Content>
               <lottie-player
@@ -154,6 +153,7 @@ function QuestionWidget({
                 src="https://assets7.lottiefiles.com/packages/lf20_oaw8d1yt.json"
                 style={{
                   width: '50%',
+                  height: '50%',
                 }}
               />
             </Widget.Content>
@@ -175,13 +175,13 @@ function QuestionWidget({
   );
 }
 
-// QuestionWidget.propTypes = {
-//   question: PropTypes.string.isRequired,
-//   questionIndex: PropTypes.string.isRequired,
-//   totalQuestions: PropTypes.string.isRequired,
-//   onSubmit: PropTypes.string.isRequired,
-//   addResult: PropTypes.string.isRequired,
-// };
+QuestionWidget.propTypes = {
+  question: PropTypes.func.isRequired,
+  questionIndex: PropTypes.number.isRequired,
+  totalQuestions: PropTypes.number.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  addResult: PropTypes.func.isRequired,
+};
 
 const screenStates = {
   QUIZ: 'QUIZ',
@@ -191,7 +191,6 @@ const screenStates = {
 
 export default function QuizPage() {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
-  // const [screenState, setScreenState] = React.useState(screenStates.RESULT);
   const [results, setResults] = React.useState([]);
   const totalQuestions = db.questions.length;
   const [currentQuestion, setCurrentQuestionIndex] = React.useState(0);
