@@ -65,9 +65,9 @@ function ResultWidget({ results }) {
   );
 }
 
-// ResultWidget.propTypes = {
-//   results: PropTypes.arrayOf(PropTypes.array).isRequired,
-// };
+ResultWidget.propTypes = {
+  results: PropTypes.arrayOf(PropTypes.array).isRequired,
+};
 
 function LoadingWidget() {
   return (
