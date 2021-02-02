@@ -12,13 +12,12 @@ import Button from '../../components/Button';
 import QuizContainer from '../../components/QuizContainer';
 import AlternativesForm from '../../components/AlternativesForm';
 import BackLinkArrow from '../../components/BackLinkArrow';
-import db from '../../../db.json';
 
 import loadingAnimation from './animation/loading.json';
 import successCheckmarkAnimation from './animation/successCheckmark.json';
 import wrongCheckmarkAnimation from './animation/wrongCheckmarker.json';
 
-function ResultWidget({ results }) {
+function ResultWidget({ results, questions }) {
   return (
     <Widget>
       <Widget.Header>
@@ -31,7 +30,7 @@ function ResultWidget({ results }) {
         </p>
         <ul>
           {results.map((result, index) => (
-            <Widget.Result key={`result__${result}`}>
+            <Widget.Result key={`results__${result}`}>
               {result ? (
                 <Lottie
                   width="50px"
@@ -50,7 +49,7 @@ function ResultWidget({ results }) {
               <div style={{ paddingLeft: '10px' }}>
                 {`#${index + 1} Alternativa Correta: `}
                 <br />
-                {`${db.questions[index].alternatives[db.questions[index].answer]}`}
+                {`${questions[index].alternatives[questions[index].answer]}`}
               </div>
             </Widget.Result>
           ))}
@@ -67,7 +66,8 @@ function ResultWidget({ results }) {
 }
 
 ResultWidget.propTypes = {
-  results: PropTypes.arrayOf(PropTypes.array).isRequired,
+  results: PropTypes.arrayOf(PropTypes.object).isRequired,
+  questions: PropTypes.arrayOf(PropTypes.array).isRequired,
 };
 
 function LoadingWidget() {
@@ -269,7 +269,8 @@ export default function QuizPage({ externalQuestions, externalBg, externalTitle 
 
         {screenState === screenStates.LOADING && <LoadingWidget />}
 
-        {screenState === screenStates.RESULT && <ResultWidget results={results} />}
+        {screenState === screenStates.RESULT
+        && <ResultWidget results={results} questions={externalQuestions} />}
 
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/Sotoriva" />
